@@ -2,7 +2,7 @@
 
 const  Home = () => {
   return (
-    <div> Home Page From Survey App </div>
+    <div className="text-2xl text-red-500"> Home Page From Survey App </div>
   )
 }
 
