@@ -15,7 +15,7 @@ const Navbar = () => {
           <div className="flex flex-row  items-center justify-between gap-3 md:gap-0">
             {/* Logo */}
             <Link to="/">
-              <p>Logo</p>
+              <p>Survey Bangla</p>
             </Link>
             {/* Dropdown Menu */}
             <div className="relative">
@@ -51,8 +51,8 @@ const Navbar = () => {
                       referrerPolicy="no-referrer"
                       src={user && user.photoURL ? user.photoURL : profileImg}
                       alt="profile"
-                      height="40"
-                      width="40"
+                      height="35"
+                      width="35"
                     />
                   </div>
                 </div>
@@ -72,7 +72,7 @@ const Navbar = () => {
                       <>
                         <Link
                           to="/dashboard"
-                          className="block md:hidden px-4 py-3 hover:bg-lime-100 transition 
+                          className="block px-4 py-3 hover:bg-lime-100 transition 
                        font-semibold hover:text-amber-950 hover:rounded-4xl"
                         >
                           Dashboard
