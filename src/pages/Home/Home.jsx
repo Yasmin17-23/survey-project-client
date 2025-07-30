@@ -1,8 +1,15 @@
+import { Helmet } from "react-helmet"
+import Banner from "../../components/Banner/Banner"
 
 
 const  Home = () => {
   return (
-    <div className="text-2xl text-red-500"> Home Page From Survey App </div>
+    <div>
+      <Helmet>
+         <title>SurveyBangla || Feedback Made Easy</title>
+      </Helmet>
+       <Banner/>
+    </div>
   )
 }
 

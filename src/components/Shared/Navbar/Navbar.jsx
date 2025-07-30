@@ -3,6 +3,7 @@ import useAuth from "../../../hooks/useAuth";
 import profileImg from "../../../assets/images/profile-img1.jpg";
 import { Link } from "react-router";
 import { AiOutlineMenu } from "react-icons/ai";
+import logo from '../../../assets/images/logo.png'
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
@@ -14,8 +15,10 @@ const Navbar = () => {
         <div className="max-w-8xl mx-auto xl:px-20 md:px-10 sm:px-2 px-4">
           <div className="flex flex-row  items-center justify-between gap-3 md:gap-0">
             {/* Logo */}
-            <Link to="/">
-              <p>Survey Bangla</p>
+            <Link to="/" className="block md:flex justify-center items-center flex-wrap">
+               <img src={logo} alt="" className="w-8 mr-2"/>
+               <h2 className="text-lg font-arvo text-blue-400 font-bold">Survey
+                <span className="text-amber-700">Bangla</span></h2>
             </Link>
             {/* Dropdown Menu */}
             <div className="relative">

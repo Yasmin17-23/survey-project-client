@@ -8,7 +8,7 @@ import { uploadImage } from "../../api/utils";
 import SocialMedia from "../../components/Shared/SocialMedia/SocialMedia";
 
 const SignUp = () => {
-  const { createUser } = useAuth();
+  const { createUser,  updateUserProfile, setLoading } = useAuth();
   const navigate = useNavigate();
 
   const {
@@ -23,6 +23,7 @@ const SignUp = () => {
     formData.append("image", image[0]);
 
     try {
+      setLoading(true)
       //1. Upload the image and get image_url
       const image_url = await uploadImage(image)
       console.log(image_url)
@@ -31,8 +32,12 @@ const SignUp = () => {
       //2. User SignUp 
       const result = await createUser(email, password);
       console.log(result)
-      toast.success('SignUp Successfully!')
+
+      //save username and photo in firebase
+      await updateUserProfile(name, image_url)
       navigate('/')
+      toast.success('SignUp Successfully!')
+      
     } catch (err) {
       console.log(err);
       toast.error(err.message)

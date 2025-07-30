@@ -1,6 +1,6 @@
 import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
@@ -10,8 +10,10 @@ import SocialMedia from "../../components/Shared/SocialMedia/SocialMedia";
 
 
 const Login = () => {
-    const { signInUser } = useAuth();
+    const { signInUser, setLoading } = useAuth();
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location?.state || '/'
 
    const {
       register,
@@ -23,16 +25,17 @@ const Login = () => {
       const { email, password } = data;
   
       try {
-        
+      setLoading(true)
       //2. User Sign In
-      const result = await signInUser(email, password)
-      console.log(result)
+      await signInUser(email, password)
+      navigate(from)
       toast.success('Login Successfully!')
-      navigate('/')
+     
         
       } catch (err) {
         console.log(err);
         toast.error(err.message)
+        setLoading(false)
       }
     };
   return (
