@@ -18,7 +18,7 @@ const SignUp = () => {
   } = useForm();
 
   const onSubmit = async (data) => {
-    const { image, email, password } = data;
+    const { name, image, email, password } = data;
     const formData = new FormData();
     formData.append("image", image[0]);
 
