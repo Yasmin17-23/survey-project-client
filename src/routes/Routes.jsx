@@ -11,6 +11,7 @@ import Common from "../pages/Dashboard/Common/Common";
 import CreateSurvey from "../pages/Dashboard/Surveyor/CreateSurvey/CreateSurvey";
 import MySurveyLists from "../pages/Dashboard/Surveyor/MySurveyLists/MySurveyLists";
 import Profile from "../pages/Dashboard/Common/Profile";
+import SurveyDetails from "../pages/SurveyDetails/SurveyDetails";
 
 export const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: '/survey/:id',
+        element: <SurveyDetails/>
       },
       {
         path: "/about-us",

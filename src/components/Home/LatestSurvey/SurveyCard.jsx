@@ -2,7 +2,7 @@ import { format } from "date-fns";
 import { Link } from "react-router";
 
 const SurveyCard = ({ survey }) => {
-  const { _id, title, deadline, category } = survey;
+  const { _id, title, category, deadline } = survey;
 
   return (
   
@@ -27,7 +27,7 @@ const SurveyCard = ({ survey }) => {
         </div>
 
         <div className="text-end my-3">
-          <Link
+          <Link to={`/survey/${_id}`}
             className="relative inline-flex items-center justify-center p-4 px-3 py-1 overflow-hidden 
             font-medium text-indigo-600 transition duration-400 ease-out border-1
              border-rose-300 rounded-full shadow-sm group"
