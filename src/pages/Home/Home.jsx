@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet"
 import Banner from "../../components/Banner/Banner"
+import LatestSurvey from "../../components/Home/LatestSurvey/LatestSurvey"
 
 
 const  Home = () => {
@@ -9,6 +10,7 @@ const  Home = () => {
          <title>SurveyBangla || Feedback Made Easy</title>
       </Helmet>
        <Banner/>
+       <LatestSurvey/>
     </div>
   )
 }
