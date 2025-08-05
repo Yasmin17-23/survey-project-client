@@ -8,10 +8,14 @@ import { GrUserSettings } from "react-icons/gr";
 import { AiOutlineLogout } from "react-icons/ai";
 import LinkItem from "../Menus/LinkItem";
 import AdminItem from "../Menus/AdminItem";
+import useRole from "../../../hooks/useRole";
+import UserItem from "../Menus/UserItem";
+import SurveyorItem from "../Menus/SurveyorItem";
 
 const Sidebar = () => {
   const { user, logOut } = useAuth();
   const [isActive, setIsActive] = useState(false);
+  const [role] = useRole();
 
   //Sidebar toggle handler
   const handleToggle = () => {
@@ -90,8 +94,10 @@ const Sidebar = () => {
               {/* Statistics */}
              
               <LinkItem label='Common' address='/dashboard' icon={BsGraphUp} />
-             
-              <AdminItem/>
+              {role === 'user' && <UserItem />}
+              {role === 'admin' && <AdminItem />}
+              {role === 'surveyor' && <SurveyorItem />}
+              
              
             </nav>
           </div>

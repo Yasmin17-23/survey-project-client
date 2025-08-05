@@ -1,5 +1,4 @@
-import { FaGithub } from "react-icons/fa";
-import { FcGoogle } from "react-icons/fc";
+
 import { Link, useLocation, useNavigate } from "react-router";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
@@ -41,7 +40,7 @@ const Login = () => {
      <div className="hero bg-base-200 min-h-screen">
           <div className="hero-content flex-col ">
             <div className="text-center ">
-              <h1 className="text-5xl font-bold text-amber-900">Sign Up!</h1>
+              <h1 className="text-5xl font-bold text-amber-900">Log In!</h1>
               <p className="py-6 font-semibold">Welcome our survey !</p>
             </div>
             <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">

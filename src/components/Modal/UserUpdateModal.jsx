@@ -15,7 +15,7 @@ import { BsCheckLg } from 'react-icons/bs'
 import { AiOutlineDown } from 'react-icons/ai'
 import { AiFillEdit } from "react-icons/ai";
 import { MdOutlineCancel } from "react-icons/md";
-const roles = ['user', 'surveyor', 'admin']
+const roles = ['user', 'surveyor', 'admin', 'pro-user']
 
 const UserUpdateModal = ({ user, isOpen, setIsOpen, roleModalHandler}) => {
     const [selected, setSelected] = useState(user.role);
@@ -50,7 +50,7 @@ const UserUpdateModal = ({ user, isOpen, setIsOpen, roleModalHandler}) => {
               leaveFrom='opacity-100 scale-100'
               leaveTo='opacity-0 scale-95'
             >
-              <DialogPanel className='w-full h-56 max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all'>
+              <DialogPanel className='w-full h-70 max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all'>
                 <DialogTitle
                   as='h3'
                   className='text-lg font-medium text-center leading-6 text-rose-700/50'
@@ -75,14 +75,14 @@ const UserUpdateModal = ({ user, isOpen, setIsOpen, roleModalHandler}) => {
                         leaveFrom='opacity-100'
                         leaveTo='opacity-0'
                       >
-                        <ListboxOptions className='absolute mt-1 max-h-60 w-full overflow-auto 
+                        <ListboxOptions className='absolute mt-1 max-h-70 w-full overflow-auto 
                         rounded-md bg-white py-1 text-base shadow-md ring-1 ring-black/5 
                         focus:outline-none sm:text-sm'>
                           {roles.map((role, roleIdx) => (
                             <ListboxOption
                               key={roleIdx}
                               className='relative cursor-default select-none py-2 pl-10 pr-4 
-                              text-rose-400 data-[focus]:bg-amber-100  data-[focus]:text-amber-900'
+                              text-rose-400 data-[focus]:bg-blue-100  data-[focus]:text-amber-900'
                               value={role}
                             >
                               {({ selected }) => (
@@ -95,7 +95,8 @@ const UserUpdateModal = ({ user, isOpen, setIsOpen, roleModalHandler}) => {
                                     {role}
                                   </span>
                                   {selected ? (
-                                    <span className='absolute inset-y-0 left-0 flex items-center pl-3 text-amber-600'>
+                                    <span className='absolute inset-y-0 left-0 flex items-center pl-3
+                                     text-blue-300'>
                                       <BsCheckLg
                                         className='h-4 w-4'
                                         aria-hidden='true'
@@ -113,7 +114,7 @@ const UserUpdateModal = ({ user, isOpen, setIsOpen, roleModalHandler}) => {
                 </div>
                 <hr className='mt-16 text-amber-100' />
 
-                <div className='flex mt-2 justify-center gap-5'>
+                <div className='flex mt-5 justify-center gap-5'>
                   <button
                     type='button'
                     className='inline-flex justify-center rounded-md border border-transparent bg-green-200 px-4 py-2 text-sm font-medium text-green-900 hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2'

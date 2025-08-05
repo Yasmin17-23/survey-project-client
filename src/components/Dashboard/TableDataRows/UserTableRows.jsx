@@ -1,18 +1,50 @@
 import PropTypes from "prop-types";
-//import useAuth from "../../../hooks/useAuth";
+import useAuth from "../../../hooks/useAuth";
 import { useState } from "react";
-//import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import UserUpdateModal from "../../Modal/UserUpdateModal";
+import { useMutation } from "@tanstack/react-query";
+import toast from "react-hot-toast";
 
-const UserTableRows = ({ user, index }) => {
-  //const { user: loggedInUser } = useAuth();
+const UserTableRows = ({ user, index, refetch }) => {
+  const { user: loggedInUser } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
-  //const axiosSecure = useAxiosSecure();
+  const axiosSecure = useAxiosSecure();
+
+  const { mutateAsync } = useMutation({
+     mutationFn: async role => {
+        const { data } = await axiosSecure.patch(
+          `/users/updaterole/${user?.email}`,
+          role
+        )
+        return data;
+     },
+     onSuccess: data => {
+       refetch();
+       console.log(data);
+       toast.success('User Role Updated!!')
+       setIsOpen(false)
+     }
+  })
 
   //modal handler
   const roleModalHandler = async (selected) => {
-    console.log("User Role Update", selected);
+    //if(user.email === loggedInUser.email){
+    //  toast.error('Action not Allowed')
+    //  return setIsOpen(false)
+    //}
+
+    const updateRole = {
+      role: selected,
+    }
+    try{
+        await mutateAsync(updateRole)
+    } catch (err){
+      console.log(err)
+      toast.error(err.message)
+    }
   };
+
   return (
     <tr>
       <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
@@ -30,6 +62,8 @@ const UserTableRows = ({ user, index }) => {
           ? "bg-red-100 text-red-600"
           : user?.role === "surveyor"
           ? "bg-blue-100 text-blue-600"
+          : user?.role === 'pro-user'
+          ? "bg-purple-100 text-purple-600"
           : "bg-green-100 text-green-600"
       }`}
         >
@@ -78,6 +112,7 @@ const UserTableRows = ({ user, index }) => {
 UserTableRows.propTypes = {
   user: PropTypes.object,
   index: PropTypes.number,
+  refetch: PropTypes.func,
 };
 
 export default UserTableRows;

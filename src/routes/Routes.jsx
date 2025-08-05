@@ -14,6 +14,8 @@ import Profile from "../pages/Dashboard/Common/Profile";
 import SurveyDetails from "../pages/SurveyDetails/SurveyDetails";
 import IndividualSurveyResponse from "../pages/Dashboard/Surveyor/IndividualSurveyResponse/IndividualSurveyResponse";
 import ManageUsers from "../pages/Dashboard/Admin/ManageUsers";
+import AdminRoute from "./AdminRoute";
+import SurveyorRoute from "./SurveyorRoute";
 
 export const router = createBrowserRouter([
   {
@@ -60,7 +62,9 @@ export const router = createBrowserRouter([
         path: "create-survey",
         element: (
           <PrivateRoute>
-            <CreateSurvey />
+            <SurveyorRoute>
+              <CreateSurvey />
+            </SurveyorRoute>
           </PrivateRoute>
         ),
       },
@@ -68,7 +72,9 @@ export const router = createBrowserRouter([
         path: "surveyor/surveys",
         element: (
           <PrivateRoute>
-            <MySurveyLists />
+            <SurveyorRoute>
+              <MySurveyLists />
+            </SurveyorRoute>
           </PrivateRoute>
         ),
       },
@@ -76,7 +82,9 @@ export const router = createBrowserRouter([
         path: "surveyor/surveys/:id",
         element: (
           <PrivateRoute>
-            <IndividualSurveyResponse />
+            <SurveyorRoute>
+              <IndividualSurveyResponse />
+            </SurveyorRoute>
           </PrivateRoute>
         ),
       },
@@ -84,7 +92,9 @@ export const router = createBrowserRouter([
         path: "admin/users",
         element: (
           <PrivateRoute>
-            <ManageUsers />
+            <AdminRoute>
+              <ManageUsers />
+            </AdminRoute>
           </PrivateRoute>
         ),
       },
