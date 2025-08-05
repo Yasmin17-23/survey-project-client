@@ -3,6 +3,8 @@ import { createUserWithEmailAndPassword, getAuth, GithubAuthProvider, GoogleAuth
   onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, 
   updateProfile} from "firebase/auth";
 import app from "../firebase/firebase.config";
+import axios from "axios";
+import useAxiosPublic from "../hooks/useAxiosPublic";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const AuthContext = createContext(null)
@@ -13,6 +15,7 @@ const githubProvider = new GithubAuthProvider();
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
+    const axiosPublic = useAxiosPublic();
 
     const createUser = (email, password) => {
       setLoading(true);
@@ -46,23 +49,51 @@ const AuthProvider = ({ children }) => {
          photoURL: photo
       })
     }
-
+    
+   
+    //Save user
+    const saveUser = async user => {
+      const currentUser = {
+        email: user?.email,
+        role: 'user'
+      }
+      const { data } = await axios.put(`
+        ${import.meta.env.VITE_API_URL}/user`,
+        currentUser
+      )
+      return data;
+    }
 
 
     //onAuthStateChange
     useEffect(() => {
       const unsubscribe = onAuthStateChanged(auth, currentUser => {
         console.log('currentuser on state change', currentUser)
+        setUser(currentUser)
         if(currentUser) {
-           setUser(currentUser)
+           saveUser(currentUser)
+           //get token and store client
+           const userInfo = { email: currentUser.email }
+           axiosPublic.post('/jwt', userInfo)
+           .then(res => {
+             if(res.data.token){
+               localStorage.setItem('access-token', res.data.token)
+                setLoading(false);
+             }
+           })
+           
         } 
-        setLoading(false)
+        else{
+             localStorage.removeItem('access-token');
+              setLoading(false);
+        }
+       
       })
 
       return () => {
         return unsubscribe()
       }
-    }, [])
+    }, [axiosPublic])
 
 
 

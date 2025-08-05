@@ -10,11 +10,7 @@ const MySurveyLists = () => {
   const axiosSecure = useAxiosSecure();
 
   //Fetch Survey Data
-  const {
-    data: surveys = [],
-    isLoading,
-    refetch,
-  } = useQuery({
+  const { data: surveys = [], isLoading } = useQuery({
     queryKey: ["surveys", user?.email],
     queryFn: async () => {
       const { data } = await axiosSecure.get(`/my-surveylists/${user?.email}`);
@@ -49,11 +45,7 @@ const MySurveyLists = () => {
               <tbody>
                 {/* row  */}
                 {surveys.map((survey) => (
-                  <SurveyDataRow
-                    key={survey._id}
-                    survey={survey}
-                    refetch={refetch}
-                  />
+                  <SurveyDataRow key={survey._id} survey={survey} />
                 ))}
               </tbody>
             </table>
