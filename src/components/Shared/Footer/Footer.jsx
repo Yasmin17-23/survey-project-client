@@ -1,9 +1,8 @@
 import logo from '../../../assets/images/logo.png'
 
 const Footer = () => {
-  return (
-    <div>
-      <footer className="footer sm:footer-horizontal bg-gray-200 text-gray-700 px-10 py-3">
+  return (  
+      <footer className="footer sm:footer-horizontal   bg-gray-200 text-gray-700 px-10 py-3">
         <aside>
         <img src={logo} alt="" className="w-8  mr-2" />
       
@@ -52,7 +51,7 @@ const Footer = () => {
           </div>
         </nav>
       </footer>
-    </div>
+    
   );
 };
 

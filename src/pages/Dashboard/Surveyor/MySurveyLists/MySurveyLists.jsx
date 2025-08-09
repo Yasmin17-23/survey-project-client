@@ -5,19 +5,23 @@ import LoadingSpinner from "../../../../components/Shared/LoadingSpinner/Loading
 import SurveyDataRow from "../../../../components/Dashboard/TableDataRows/SurveyDataRow";
 import { Helmet } from "react-helmet";
 
+
 const MySurveyLists = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
+  
 
   //Fetch Survey Data
   const { data: surveys = [], isLoading } = useQuery({
-    queryKey: ["surveys", user?.email],
+    queryKey: ['my-surveylists', user?.email],
     queryFn: async () => {
-      const { data } = await axiosSecure.get(`/my-surveylists/${user?.email}`);
-      return data;
-    },
-  });
+       const { data } = await axiosSecure.get(`/my-surveylists/${user?.email}`)
 
+       return data;
+    }
+  })
+  
+  console.log(surveys)
   if (isLoading) return <LoadingSpinner />;
   return (
     <>

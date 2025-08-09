@@ -6,7 +6,7 @@ const SurveyorItem = () => {
   return (
     <>
      <LinkItem label='Create Survey' address='create-survey' icon={MdPostAdd} />
-     <LinkItem label='My Survey Lists' address='surveyor/surveys' icon={BsFileEarmarkPlusFill}/>
+     <LinkItem label='My Survey Lists' address='my-surveylists' icon={BsFileEarmarkPlusFill}/>
     </>
   )
 }

@@ -8,9 +8,7 @@ const SurveyorRoute = ({ children }) => {
 
   if (isLoading) return <LoadingSpinner />;
   
-  if (role === "surveyor") {
-    return children;
-  }
+  if (role === "surveyor") return children;
   return <Navigate to="/dashboard" />;
 };
 

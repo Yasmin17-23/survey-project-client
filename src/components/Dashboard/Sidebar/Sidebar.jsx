@@ -81,32 +81,36 @@ const Sidebar = () => {
                    border-amber-700"
                 />
               </div>
-              <h2 className="text-sm font-arvo text-fuchsia-700 mt-2">{user?.displayName}</h2>
+              <h2 className="text-sm font-arvo text-fuchsia-700 mt-2">
+                {user?.displayName}
+              </h2>
             </div>
           </div>
 
           {/* Nav Items */}
           <div className="flex flex-col justify-between flex-1 mt-6">
             {/* Conditional toggle button here.. */}
-            <hr className="text-amber-100"/>
+            <hr className="text-amber-100" />
             {/*  Menu Items */}
             <nav>
               {/* Statistics */}
-             
-              <LinkItem label='Common' address='/dashboard' icon={BsGraphUp} />
-              {role === 'user' && <UserItem />}
-              {role === 'admin' && <AdminItem />}
-              {role === 'surveyor' && <SurveyorItem />}
-              
-             
+
+              <LinkItem label="Common" address="/dashboard" icon={BsGraphUp} />
+              {role === "user" && <UserItem />}
+              {role === "surveyor" && <SurveyorItem />}
+              {role === "admin" && <AdminItem />}
             </nav>
           </div>
         </div>
 
         <div>
-          <hr className="text-amber-100"/>
-         
-          <LinkItem label='Profile' address='/dashboard/profile' icon={GrUserSettings}/>
+          <hr className="text-amber-100" />
+
+          <LinkItem
+            label="Profile"
+            address="/dashboard/profile"
+            icon={GrUserSettings}
+          />
 
           <button
             onClick={logOut}

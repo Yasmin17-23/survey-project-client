@@ -21,7 +21,7 @@ const ManageUsers = () => {
       return data;
     },
   });
-
+  console.log(users)
   if (isLoading) return <LoadingSpinner />;
   return (
     <>
@@ -83,7 +83,7 @@ const ManageUsers = () => {
                         index={index}
                         refetch={refetch}
                       />
-                    ))}
+                    ))} 
                   </tbody>
                 </table>
               </div>
