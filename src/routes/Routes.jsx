@@ -17,6 +17,7 @@ import ManageUsers from "../pages/Dashboard/Admin/ManageUsers";
 import AdminRoute from "./AdminRoute";
 import SurveyorRoute from "./SurveyorRoute";
 import ReportedSurveys from "../pages/Dashboard/User/ReportedSurveys";
+import ParticipatedSurveys from "../pages/Dashboard/User/ParticipatedSurveys";
 
 export const router = createBrowserRouter([
   {
@@ -56,6 +57,14 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <Common />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "user/surveys",
+        element: (
+          <PrivateRoute>
+            <ParticipatedSurveys />
           </PrivateRoute>
         ),
       },
