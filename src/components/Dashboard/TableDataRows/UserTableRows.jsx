@@ -29,10 +29,10 @@ const UserTableRows = ({ user, index, refetch }) => {
 
   //modal handler
   const roleModalHandler = async (selected) => {
-    //if(user.email === loggedInUser.email){
-    //  toast.error('Action not Allowed')
-    //  return setIsOpen(false)
-    //}
+    if(user.email === loggedInUser.email){
+      toast.error('Action not Allowed')
+      return setIsOpen(false)
+    }
 
     const updateRole = {
       role: selected,

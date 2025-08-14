@@ -21,6 +21,7 @@ import ParticipatedSurveys from "../pages/Dashboard/User/ParticipatedSurveys";
 import Pricing from "../pages/Pricing/Pricing";
 import BuyMembership from "../pages/Pricing/BuyMembership";
 import ManagePayments from "../pages/Dashboard/Admin/ManagePayments";
+import ManageSurveys from "../pages/Dashboard/Admin/ManageSurveys";
 
 export const router = createBrowserRouter([
   {
@@ -136,6 +137,16 @@ export const router = createBrowserRouter([
           <PrivateRoute>
             <AdminRoute>
               <ManagePayments/>
+            </AdminRoute>
+          </PrivateRoute>
+        ),
+      },
+       {
+        path: "admin/surveys",
+        element: (
+          <PrivateRoute>
+            <AdminRoute>
+              <ManageSurveys/>
             </AdminRoute>
           </PrivateRoute>
         ),
