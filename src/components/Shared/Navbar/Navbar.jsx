@@ -29,20 +29,27 @@ const Navbar = () => {
             <div className="relative">
               <div className="flex flex-row items-center gap-3">
                 {/* Become A Host btn */}
-                <div className="flex justify-between items-center">
+                <div className="flex  justify-between items-center">
                   <Link
                     to="/about-us"
-                    className="block  px-4 py-3 hover:bg-lime-100 transition font-semibold 
+                    className="block p-2 md:px-4 md:py-3 hover:bg-lime-100 transition font-semibold 
                     hover:rounded-4xl space-x-5 hover:text-amber-950"
                   >
                     About Us
                   </Link>
                   <Link
                     to="/contact-us"
-                    className="block  px-4 py-3 hover:bg-lime-100 transition 
+                    className="block p-2 md:px-4 md:py-3 hover:bg-lime-100 transition 
                     font-semibold hover:rounded-4xl space-x-5 hover:text-amber-950"
                   >
                     Contact Us
+                  </Link>
+                   <Link
+                    to="/pricing"
+                    className="block p-2  md:px-4 md:py-3 hover:bg-lime-100 transition 
+                    font-semibold hover:rounded-4xl space-x-5 hover:text-amber-950"
+                  >
+                    Pro User
                   </Link>
                 </div>
 

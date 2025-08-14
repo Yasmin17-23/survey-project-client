@@ -18,6 +18,8 @@ import AdminRoute from "./AdminRoute";
 import SurveyorRoute from "./SurveyorRoute";
 import ReportedSurveys from "../pages/Dashboard/User/ReportedSurveys";
 import ParticipatedSurveys from "../pages/Dashboard/User/ParticipatedSurveys";
+import Pricing from "../pages/Pricing/Pricing";
+import BuyMembership from "../pages/Pricing/BuyMembership";
 
 export const router = createBrowserRouter([
   {
@@ -40,6 +42,19 @@ export const router = createBrowserRouter([
         path: "/contact-us",
         element: <ContactUs />,
       },
+      {
+        path: "/pricing",
+        element: (
+          <PrivateRoute>
+            <Pricing />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: '/buy-membership',
+        element: <PrivateRoute><BuyMembership/></PrivateRoute>
+      }
+
     ],
   },
   { path: "/login", element: <Login /> },
