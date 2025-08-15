@@ -9,10 +9,8 @@ import PrivateRoute from "./PrivateRoute";
 import DashboardLayout from "../layouts/DashboardLayout";
 import Common from "../pages/Dashboard/Common/Common";
 import CreateSurvey from "../pages/Dashboard/Surveyor/CreateSurvey/CreateSurvey";
-import MySurveyLists from "../pages/Dashboard/Surveyor/MySurveyLists/MySurveyLists";
 import Profile from "../pages/Dashboard/Common/Profile";
 import SurveyDetails from "../pages/SurveyDetails/SurveyDetails";
-import IndividualSurveyResponse from "../pages/Dashboard/Surveyor/IndividualSurveyResponse/IndividualSurveyResponse";
 import ManageUsers from "../pages/Dashboard/Admin/ManageUsers";
 import AdminRoute from "./AdminRoute";
 import SurveyorRoute from "./SurveyorRoute";
@@ -22,6 +20,8 @@ import Pricing from "../pages/Pricing/Pricing";
 import BuyMembership from "../pages/Pricing/BuyMembership";
 import ManagePayments from "../pages/Dashboard/Admin/ManagePayments";
 import ManageSurveys from "../pages/Dashboard/Admin/ManageSurveys";
+import ResponsesSurvey from "../pages/Dashboard/Surveyor/ResponsesSurvey/ResponsesSurvey";
+import IndividualResponseSurvey from "../pages/Dashboard/Surveyor/ResponsesSurvey/IndividualResponseSurvey";
 
 export const router = createBrowserRouter([
   {
@@ -104,20 +104,22 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "my-surveylists",
+        path: "surveyor/surveys",
         element: (
           <PrivateRoute>
-            <SurveyorRoute>
-              <MySurveyLists />
-            </SurveyorRoute>
+             <SurveyorRoute>
+                <ResponsesSurvey/>
+             </SurveyorRoute>
           </PrivateRoute>
         ),
       },
-      {
+       {
         path: "surveyor/surveys/:id",
         element: (
           <PrivateRoute>
-            <IndividualSurveyResponse />
+             <SurveyorRoute>
+                <IndividualResponseSurvey/>
+             </SurveyorRoute>
           </PrivateRoute>
         ),
       },

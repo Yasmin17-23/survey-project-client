@@ -6,15 +6,13 @@ import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import useAuth from "../../../../hooks/useAuth";
 import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
-//import { useNavigate } from "react-router";
-
 
 
 const CreateSurvey = () => {
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
   const [startDate, setStartDate] = useState(new Date());
-  //const navigate = useNavigate();
+ 
 
   const { mutateAsync } = useMutation({
     mutationFn: async surveyData => {
@@ -23,8 +21,7 @@ const CreateSurvey = () => {
     },
     onSuccess: () => {
       console.log('Survey Create Successfully');
-      toast.success('Survey Create Successfully!');
-      //navigate('/dashboard/surveyor/surveys')
+      toast.success('Survey Create Successfully!');      
     }
   })
 

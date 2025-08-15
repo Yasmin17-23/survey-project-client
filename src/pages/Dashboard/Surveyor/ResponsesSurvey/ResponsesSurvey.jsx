@@ -1,44 +1,47 @@
-import { useQuery } from "@tanstack/react-query";
-import useAxiosSecure from "../../../../hooks/useAxiosSecure";
-import useAuth from "../../../../hooks/useAuth";
-import LoadingSpinner from "../../../../components/Shared/LoadingSpinner/LoadingSpinner";
-import SurveyDataRow from "../../../../components/Dashboard/TableDataRows/SurveyDataRow";
 import { Helmet } from "react-helmet";
+import useAuth from "../../../../hooks/useAuth";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import LoadingSpinner from "../../../../components/Shared/LoadingSpinner/LoadingSpinner";
+import { useQuery } from "@tanstack/react-query";
+import SurveyDataRow from "../../../../components/Dashboard/TableDataRows/SurveyDataRow";
 
-
-const MySurveyLists = () => {
+const ResponsesSurvey = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
-  
 
-  //Fetch Survey Data
+  //Fetch Survey Data using loggedIn user
   const { data: surveys = [], isLoading } = useQuery({
-    queryKey: ['my-surveylists', user?.email],
+    queryKey: ["my-surveylists", user?.email],
     queryFn: async () => {
-       const { data } = await axiosSecure.get(`/my-surveylists/${user?.email}`)
+      const { data } = await axiosSecure.get(
+        `/responses-surveylist/${user?.email}`
+      );
 
-       return data;
-    }
-  })
-  
-  console.log(surveys)
+      return data;
+    },
+  });
+
   if (isLoading) return <LoadingSpinner />;
   return (
     <>
       <Helmet>
-        <title>My Survey Lists</title>
+        <title>Responses Survey Page</title>
       </Helmet>
       <div className="flex flex-col justify-center items-center my-8">
-        <div className="flex  justify-center items-center mb-8">
+        <div className="flex flex-col  justify-center items-center mb-8">
           <h2 className="md:text-3xl font-arvo  font-bold text-gray-400">
-            My Created Survey List
+            Individual Responses Survey
           </h2>
+          <p className="text-sm text-gray-400">
+            By Survey Responses, I means the votes and comments that users have
+            submitted for a survey
+          </p>
         </div>
         <div className="min-w-full">
           <div className="overflow-x-auto">
             <table className="table">
               {/* head */}
-              <thead>
+              <thead className="bg-amber-100 uppercase">
                 <tr>
                   <th>Title</th>
                   <th>Category</th>
@@ -60,4 +63,4 @@ const MySurveyLists = () => {
   );
 };
 
-export default MySurveyLists;
+export default ResponsesSurvey;
