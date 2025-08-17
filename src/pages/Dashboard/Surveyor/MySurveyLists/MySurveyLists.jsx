@@ -1,29 +1,30 @@
-import { Helmet } from "react-helmet";
+import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../../hooks/useAuth";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import LoadingSpinner from "../../../../components/Shared/LoadingSpinner/LoadingSpinner";
-import { useQuery } from "@tanstack/react-query";
-import SurveyDataRow from "../../../../components/Dashboard/TableDataRows/SurveyDataRow";
+import { Helmet } from "react-helmet";
+import SurveyTableRow from "../../../../components/Dashboard/TableDataRows/SurveyTableRow";
 
-const ResponsesSurvey = () => {
-  const { user } = useAuth();
-  const axiosSecure = useAxiosSecure();
 
-  //Fetch Survey Data using loggedIn user
-  const { data: surveys = [], isLoading } = useQuery({
-    queryKey: ["responses-surveylists", user?.email],
-    queryFn: async () => {
-      const { data } = await axiosSecure.get(
-        `/responses-surveylist/${user?.email}`
-      );
-      return data;
-    },
-  });
-
-  if (isLoading) return <LoadingSpinner />;
+const MySurveyLists = () => {
+    const { user } = useAuth();
+      const axiosSecure = useAxiosSecure();
+    
+      //Fetch Survey Data using loggedIn user
+      const { data: surveys = [], isLoading, refetch } = useQuery({
+        queryKey: ["mysurvey-lists", user?.email],
+        queryFn: async () => {
+          const { data } = await axiosSecure.get(
+            `/mysurvey-lists/${user?.email}`
+          );
+          return data;
+        },
+      });
+    
+      if (isLoading) return <LoadingSpinner />;
   return (
     <>
-      <Helmet>
+     <Helmet>
         <title>Responses Survey Page</title>
       </Helmet>
       <div className="flex flex-col justify-center items-center my-8">
@@ -51,7 +52,7 @@ const ResponsesSurvey = () => {
               <tbody>
                 {/* row  */}
                 {surveys.map((survey) => (
-                  <SurveyDataRow key={survey._id} survey={survey} />
+                  <SurveyTableRow key={survey._id} survey={survey} refetch={refetch}/>
                 ))}
               </tbody>
             </table>
@@ -59,7 +60,7 @@ const ResponsesSurvey = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default ResponsesSurvey;
+export default MySurveyLists

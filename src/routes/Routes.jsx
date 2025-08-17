@@ -22,6 +22,8 @@ import ManagePayments from "../pages/Dashboard/Admin/ManagePayments";
 import ManageSurveys from "../pages/Dashboard/Admin/ManageSurveys";
 import ResponsesSurvey from "../pages/Dashboard/Surveyor/ResponsesSurvey/ResponsesSurvey";
 import IndividualResponseSurvey from "../pages/Dashboard/Surveyor/ResponsesSurvey/IndividualResponseSurvey";
+import MySurveyLists from "../pages/Dashboard/Surveyor/MySurveyLists/MySurveyLists";
+
 
 export const router = createBrowserRouter([
   {
@@ -99,6 +101,16 @@ export const router = createBrowserRouter([
           <PrivateRoute>
             <SurveyorRoute>
               <CreateSurvey />
+            </SurveyorRoute>
+          </PrivateRoute>
+        ),
+      },
+       {
+        path: "mysurvey-lists",
+        element: (
+          <PrivateRoute>
+            <SurveyorRoute>
+              <MySurveyLists/>
             </SurveyorRoute>
           </PrivateRoute>
         ),
