@@ -6,7 +6,8 @@ const ParticipatedDataRow = ({ survey, index}) => {
         return survey?.voteRecord?.map((voteItem, idx) => {
             const voteValue = voteItem.vote;
             return (<span key={idx} className={`inline-block px-2 py-0.5 mr-1 rounded text-xs
-                 font-semibold ${voteValue === 'yes' ? 'bg-green-100 text-green-600' : 'bg-red-100 text-red-600' }`}>{voteValue.toUpperCase()}</span>)
+                 font-semibold ${voteValue === 'yes' ? 'bg-green-100 text-green-600' :
+                   'bg-red-100 text-red-600' }`}>{voteValue.toUpperCase()}</span>)
        })
     }
   return (

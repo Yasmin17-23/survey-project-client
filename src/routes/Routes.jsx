@@ -23,7 +23,7 @@ import ManageSurveys from "../pages/Dashboard/Admin/ManageSurveys";
 import ResponsesSurvey from "../pages/Dashboard/Surveyor/ResponsesSurvey/ResponsesSurvey";
 import IndividualResponseSurvey from "../pages/Dashboard/Surveyor/ResponsesSurvey/IndividualResponseSurvey";
 import MySurveyLists from "../pages/Dashboard/Surveyor/MySurveyLists/MySurveyLists";
-
+import FeedbackSurveys from "../pages/Dashboard/Surveyor/FeedbackSurveys/FeedbackSurveys";
 
 export const router = createBrowserRouter([
   {
@@ -55,10 +55,13 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: '/buy-membership',
-        element: <PrivateRoute><BuyMembership/></PrivateRoute>
-      }
-
+        path: "/buy-membership",
+        element: (
+          <PrivateRoute>
+            <BuyMembership />
+          </PrivateRoute>
+        ),
+      },
     ],
   },
   { path: "/login", element: <Login /> },
@@ -105,12 +108,12 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-       {
+      {
         path: "mysurvey-lists",
         element: (
           <PrivateRoute>
             <SurveyorRoute>
-              <MySurveyLists/>
+              <MySurveyLists />
             </SurveyorRoute>
           </PrivateRoute>
         ),
@@ -119,19 +122,29 @@ export const router = createBrowserRouter([
         path: "surveyor/surveys",
         element: (
           <PrivateRoute>
-             <SurveyorRoute>
-                <ResponsesSurvey/>
-             </SurveyorRoute>
+            <SurveyorRoute>
+              <ResponsesSurvey />
+            </SurveyorRoute>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "surveyor/surveys/:id",
+        element: (
+          <PrivateRoute>
+            <SurveyorRoute>
+              <IndividualResponseSurvey />
+            </SurveyorRoute>
           </PrivateRoute>
         ),
       },
        {
-        path: "surveyor/surveys/:id",
+        path: "surveyor/feedback",
         element: (
           <PrivateRoute>
-             <SurveyorRoute>
-                <IndividualResponseSurvey/>
-             </SurveyorRoute>
+            <SurveyorRoute>
+              <FeedbackSurveys/>
+            </SurveyorRoute>
           </PrivateRoute>
         ),
       },
@@ -145,22 +158,22 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-       {
+      {
         path: "admin/payments",
         element: (
           <PrivateRoute>
             <AdminRoute>
-              <ManagePayments/>
+              <ManagePayments />
             </AdminRoute>
           </PrivateRoute>
         ),
       },
-       {
+      {
         path: "admin/surveys",
         element: (
           <PrivateRoute>
             <AdminRoute>
-              <ManageSurveys/>
+              <ManageSurveys />
             </AdminRoute>
           </PrivateRoute>
         ),

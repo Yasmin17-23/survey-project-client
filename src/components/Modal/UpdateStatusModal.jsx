@@ -22,8 +22,11 @@ const UpdateStatusModal = ({
   isModalOpen,
   setIsModalOpen,
   statusModalHandler,
+  feedback,
+  setFeedback
 }) => {
   const [selected, setSelected] = useState(survey?.status);
+  
 
   return (
     <Transition appear show={isModalOpen} as={Fragment}>
@@ -55,7 +58,7 @@ const UpdateStatusModal = ({
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <DialogPanel className="w-full h-70 max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+              <DialogPanel className="w-full h-80 max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                 <DialogTitle
                   as="h3"
                   className="text-lg font-medium text-center leading-6 text-rose-700/50"
@@ -121,9 +124,19 @@ const UpdateStatusModal = ({
                     </div>
                   </Listbox>
                 </div>
-                <hr className="mt-16 text-amber-100" />
+                <hr className="mt-10 text-amber-100" />
+                <div className="flex mt-3 justify-center gap-5">
+                  <textarea
+                    name="feedback"
+                    value={feedback}
+                    onChange={(e) => setFeedback(e.target.value)}
+                    className="w-full border border-rose-300 rounded-md p-3 text-sm"
+                    rows="4"
+                    placeholder="Please provide a reason for unpulishing..."
+                  ></textarea>
+                </div>
 
-                <div className="flex mt-5 justify-center gap-5">
+                <div className="flex mt-3 justify-center gap-5">
                   <button
                     type="button"
                     className="inline-flex justify-center rounded-md border border-transparent bg-green-200 px-4 py-2 text-sm font-medium text-green-900 hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2"
@@ -159,6 +172,8 @@ UpdateStatusModal.propTypes = {
   isModalOpen: PropTypes.bool,
   setIsModalOpen: PropTypes.func,
   statusModalHandler: PropTypes.func,
+  feedback: PropTypes.string,
+  setFeedback: PropTypes.func,
 };
 
 export default UpdateStatusModal;

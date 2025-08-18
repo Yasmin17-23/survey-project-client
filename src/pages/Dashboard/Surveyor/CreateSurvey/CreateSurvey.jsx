@@ -56,6 +56,10 @@ const CreateSurvey = () => {
       //create request to server
       await mutateAsync(surveyData)
 
+      //form reset
+      form.reset();
+      setStartDate(new Date())
+
     } catch(err) {
       console.log(err)
       toast.error(err.message)
