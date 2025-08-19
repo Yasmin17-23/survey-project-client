@@ -1,34 +1,37 @@
-import { format } from "date-fns";
-import PropTypes from "prop-types";
-import { Link } from "react-router";
+import { format } from "date-fns"
+import { Link } from "react-router"
 
-const SurveyCard = ({ survey }) => {
-  const { _id, title, category, deadline } = survey;
 
+const Card = ( { survey }) => {
   return (
-  
       <div className="w-full max-w-sm px-3 py-3 bg-white rounded-md shadow-md
        dark:bg-gray-800 transition-transform duration-500 ease-in-out hover:shadow-md hover:-translate-y-1">
         <div className="flex items-center justify-between">
           <span className="text-sm font-semibold text-gray-800 dark:text-gray-400">
-            Deadline: {format(new Date(deadline), "P")}
+            Deadline: {format(new Date(survey?.deadline), "P")}
           </span>
           <span
             className="px-3 py-1 text-xs text-rose-800 uppercase bg-rose-200 rounded-full
            dark:bg-blue-300 dark:text-blue-900"
           >
-            {category}
+            {survey?.category}
           </span>
         </div>
 
         <div>
           <h1 className="mt-2 md:text-lg font-semibold text-gray-800 dark:text-white">
-            {title}
+            {survey?.title}
           </h1>
         </div>
 
-        <div className="text-end my-3">
-          <Link to={`/survey/${_id}`}
+        <div className="flex justify-between items-center my-3">
+          <div className="bg-rose-200 border border-rose-700 rounded-full px-3 py-1 text-rose-700 font-semibold">
+             <h2 className="text-md">
+               <span>Vote: </span>
+               {survey?.voteCount}
+             </h2>
+          </div>
+          <Link to={`/survey/${survey._id}`}
             className="relative inline-flex items-center justify-center p-4 px-3 py-1 overflow-hidden 
             font-medium text-indigo-600 transition duration-400 ease-out border-1
              border-rose-300 rounded-full shadow-sm group"
@@ -59,12 +62,7 @@ const SurveyCard = ({ survey }) => {
           </Link>
         </div>
       </div>
-   
-  );
-};
-
-SurveyCard.propTypes = {
-   survey: PropTypes.func,
+  )
 }
 
-export default SurveyCard;
+export default Card

@@ -7,9 +7,7 @@ import AboutUs from "../pages/AboutUs/AboutUs";
 import ContactUs from "../pages/ContactUs/ContactUs";
 import PrivateRoute from "./PrivateRoute";
 import DashboardLayout from "../layouts/DashboardLayout";
-import Common from "../pages/Dashboard/Common/Common";
 import CreateSurvey from "../pages/Dashboard/Surveyor/CreateSurvey/CreateSurvey";
-import Profile from "../pages/Dashboard/Common/Profile";
 import SurveyDetails from "../pages/SurveyDetails/SurveyDetails";
 import ManageUsers from "../pages/Dashboard/Admin/ManageUsers";
 import AdminRoute from "./AdminRoute";
@@ -24,6 +22,9 @@ import ResponsesSurvey from "../pages/Dashboard/Surveyor/ResponsesSurvey/Respons
 import IndividualResponseSurvey from "../pages/Dashboard/Surveyor/ResponsesSurvey/IndividualResponseSurvey";
 import MySurveyLists from "../pages/Dashboard/Surveyor/MySurveyLists/MySurveyLists";
 import FeedbackSurveys from "../pages/Dashboard/Surveyor/FeedbackSurveys/FeedbackSurveys";
+import Profile from "../pages/Dashboard/Common/Profile"
+import UserComments from "../pages/Dashboard/User/UserComments";
+import ProUserRoute from "./ProUserRoute";
 
 export const router = createBrowserRouter([
   {
@@ -78,7 +79,7 @@ export const router = createBrowserRouter([
         index: true,
         element: (
           <PrivateRoute>
-            <Common />
+             <Profile/>
           </PrivateRoute>
         ),
       },
@@ -95,6 +96,16 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <ReportedSurveys />
+          </PrivateRoute>
+        ),
+      },
+       {
+        path: "user/comments",
+        element: (
+          <PrivateRoute>
+             <ProUserRoute>
+               <UserComments/>
+             </ProUserRoute>
           </PrivateRoute>
         ),
       },
@@ -178,14 +189,7 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-      {
-        path: "profile",
-        element: (
-          <PrivateRoute>
-            <Profile />
-          </PrivateRoute>
-        ),
-      },
+      
     ],
   },
 ]);

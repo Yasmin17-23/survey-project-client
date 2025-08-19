@@ -8,7 +8,8 @@ import SurveyTableRow from "../../../../components/Dashboard/TableDataRows/Surve
 
 const MySurveyLists = () => {
     const { user } = useAuth();
-      const axiosSecure = useAxiosSecure();
+    const axiosSecure = useAxiosSecure();
+    
     
       //Fetch Survey Data using loggedIn user
       const { data: surveys = [], isLoading, refetch } = useQuery({
@@ -20,7 +21,7 @@ const MySurveyLists = () => {
           return data;
         },
       });
-    
+       console.log(surveys)
       if (isLoading) return <LoadingSpinner />;
   return (
     <>
@@ -58,6 +59,7 @@ const MySurveyLists = () => {
             </table>
           </div>
         </div>
+       
       </div>
     </>
   )

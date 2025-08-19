@@ -44,7 +44,7 @@ const ParticipatedSurveys = () => {
                      <tbody>
                        {/* row  */}
                        {surveys.map((survey, index) => (
-                          <ParticipatedDataRow key={survey._id} index={index} survey={survey} />
+                          <ParticipatedDataRow key={survey._id} index={index} survey={survey} user={user}/>
                        ))}
                      </tbody>
                    </table>

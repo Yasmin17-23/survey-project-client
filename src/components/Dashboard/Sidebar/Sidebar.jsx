@@ -95,8 +95,13 @@ const Sidebar = () => {
             <nav>
               {/* Statistics */}
 
-              <LinkItem label="Common" address="/dashboard" icon={BsGraphUp} />
-              {role === "user" && <UserItem />}
+              
+              <LinkItem
+                label="Profile"
+                address="/dashboard"
+                icon={GrUserSettings}
+              />
+              {(role === "user" || role === "pro-user") && <UserItem />}
               {role === "surveyor" && <SurveyorItem />}
               {role === "admin" && <AdminItem />}
             </nav>
@@ -105,12 +110,6 @@ const Sidebar = () => {
 
         <div>
           <hr className="text-amber-100" />
-
-          <LinkItem
-            label="Profile"
-            address="/dashboard/profile"
-            icon={GrUserSettings}
-          />
 
           <button
             onClick={logOut}

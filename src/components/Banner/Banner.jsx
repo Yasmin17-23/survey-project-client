@@ -1,4 +1,4 @@
-import bannerImg from "../../assets/images/banner-img.jpg";
+
 
 const Banner = () => {
   return (
@@ -6,7 +6,7 @@ const Banner = () => {
       <div
         className="w-full bg-center bg-cover h-[26rem] rounded-2xl overflow-hidden"
         style={{
-          backgroundImage: `url(${bannerImg})`,
+          backgroundImage: "url(https://i.postimg.cc/YqcR6HWj/banner-img.jpg)",
         }}
       >
         <div className="flex items-center justify-center w-full h-full bg-gray-900/40">
