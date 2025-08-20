@@ -26,12 +26,12 @@ const MySurveyLists = () => {
   return (
     <>
      <Helmet>
-        <title>Responses Survey Page</title>
+        <title>My Survey Lists</title>
       </Helmet>
-      <div className="flex flex-col justify-center items-center my-8">
+      <div className="flex flex-col justify-center items-center my-8 w-full px-2 md:px-6">
         <div className="flex flex-col  justify-center items-center mb-8">
           <h2 className="md:text-3xl font-arvo  font-bold text-gray-400">
-            Individual Responses Survey
+            My Created All Survey List
           </h2>
           <p className="text-sm text-gray-400">
             By Survey Responses, I means the votes and comments that users have
@@ -39,8 +39,8 @@ const MySurveyLists = () => {
           </p>
         </div>
         <div className="min-w-full">
-          <div className="overflow-x-auto">
-            <table className="table">
+          <div className="overflow-x-auto w-full">
+            <table className="table ">
               {/* head */}
               <thead className="bg-amber-100 uppercase">
                 <tr>

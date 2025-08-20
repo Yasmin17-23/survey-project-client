@@ -8,7 +8,7 @@ import FeaturedSurvey from "../../components/Home/FeaturedSurvey/FeaturedSurvey"
 
 const  Home = () => {
   return (
-    <div>
+    <div className="px-5">
       <Helmet>
          <title>SurveyBangla || Feedback Made Easy</title>
       </Helmet>
@@ -16,7 +16,9 @@ const  Home = () => {
        <FeaturedSurvey/>
        <LatestSurvey/>
        <WorkSurvey/>
-       <Faq/>
+      <div className="px-5">
+         <Faq/>
+      </div>
     </div>
   )
 }

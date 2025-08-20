@@ -1,10 +1,10 @@
-import logo from '../../../assets/images/logo.png'
+
 
 const Footer = () => {
   return (  
       <footer className="footer sm:footer-horizontal   bg-gray-200 text-gray-700 px-10 py-3">
         <aside>
-        <img src={logo} alt="" className="w-8  mr-2" />
+        <img src="https://i.postimg.cc/Z5rgfmkf/logo.png" alt="" className="w-8  mr-2" />
       
           <h2 className="text-md font-arvo text-blue-400 font-bold">
             Survey <span className="text-amber-700">Bangla</span>

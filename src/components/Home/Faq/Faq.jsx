@@ -1,11 +1,11 @@
 const Faq = () => {
   return (
-    <div className="flex flex-col justify-center items-center  my-16">
+    <div className="flex flex-col justify-center items-center  my-16 ">
       <div className="flex flex-col justify-center items-center mb-8">
         <h2 className="md:text-2xl font-arvo  font-bold text-amber-700">
           Frequently Asked Questions
         </h2>
-        <p className="text-gray-600 text-sm">
+        <p className="text-gray-600 text-sm text-center">
           {" "}
           Explore our most asked questions to get quick solutions, helpful tips,
           and essential guidance.
@@ -17,7 +17,7 @@ const Faq = () => {
           <div className="collapse-title font-semibold md:text-xl text-gray-700">
             What is this website used for?
           </div>
-          <div className="collapse-content text-sm">
+          <div className="collapse-content text-sm pl-4">
             <p>
               This website allows users to create, share, and participate in
               surveys. It's ideal for collecting feedback, opinions, or research

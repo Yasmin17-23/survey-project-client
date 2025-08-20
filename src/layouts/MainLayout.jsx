@@ -5,7 +5,10 @@ import Footer from "../components/Shared/Footer/Footer";
 const MainLayout = () => {
   return (
     <div>
-      <Navbar />
+      <div className="px-8 md:px-0">
+        <Navbar />
+      </div>
+      
       <div className="pt-24 mx-auto max-w-7xl min-h-[calc(100vh-80px)] xl:px-16 md:px-10 sm:px-2 px-4">
         <Outlet />
       </div>

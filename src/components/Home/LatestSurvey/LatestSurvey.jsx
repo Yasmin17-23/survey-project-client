@@ -2,10 +2,12 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import LoadingSpinner from "../../Shared/LoadingSpinner/LoadingSpinner";
 import SurveyCard from "./SurveyCard";
+import { useState } from "react";
 
 
 const LatestSurvey = () => {
     const axiosPublic = useAxiosPublic();
+    const [dataItem, setDataItem] = useState(6)
     
 
     const { data: surveys = [], isLoading } = useQuery({
@@ -27,7 +29,7 @@ const LatestSurvey = () => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10">
          {
-            surveys.map(survey => (
+            surveys.slice(0, dataItem).map(survey => (
                 <SurveyCard key={survey._id} survey={survey}/>
             ))
          }

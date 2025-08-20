@@ -22,14 +22,18 @@ import ResponsesSurvey from "../pages/Dashboard/Surveyor/ResponsesSurvey/Respons
 import IndividualResponseSurvey from "../pages/Dashboard/Surveyor/ResponsesSurvey/IndividualResponseSurvey";
 import MySurveyLists from "../pages/Dashboard/Surveyor/MySurveyLists/MySurveyLists";
 import FeedbackSurveys from "../pages/Dashboard/Surveyor/FeedbackSurveys/FeedbackSurveys";
-import Profile from "../pages/Dashboard/Common/Profile"
+import Profile from "../pages/Dashboard/Common/Profile";
 import UserComments from "../pages/Dashboard/User/UserComments";
 import ProUserRoute from "./ProUserRoute";
+import Survey from "../pages/Survey/Survey";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import DashboardHome from "../pages/Dashboard/Common/DashboardHome";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -42,6 +46,10 @@ export const router = createBrowserRouter([
       {
         path: "/about-us",
         element: <AboutUs />,
+      },
+      {
+        path: "/all-survey",
+        element: <Survey />,
       },
       {
         path: "/contact-us",
@@ -79,7 +87,7 @@ export const router = createBrowserRouter([
         index: true,
         element: (
           <PrivateRoute>
-             <Profile/>
+            <DashboardHome/>
           </PrivateRoute>
         ),
       },
@@ -99,13 +107,13 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-       {
+      {
         path: "user/comments",
         element: (
           <PrivateRoute>
-             <ProUserRoute>
-               <UserComments/>
-             </ProUserRoute>
+            <ProUserRoute>
+              <UserComments />
+            </ProUserRoute>
           </PrivateRoute>
         ),
       },
@@ -149,12 +157,12 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-       {
+      {
         path: "surveyor/feedback",
         element: (
           <PrivateRoute>
             <SurveyorRoute>
-              <FeedbackSurveys/>
+              <FeedbackSurveys />
             </SurveyorRoute>
           </PrivateRoute>
         ),
@@ -189,7 +197,14 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-      
+      {
+        path: "profile",
+        element: (
+          <PrivateRoute>
+            <Profile />
+          </PrivateRoute>
+        ),
+      },
     ],
   },
 ]);

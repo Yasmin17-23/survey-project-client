@@ -17,7 +17,7 @@ const FeaturedSurvey = () => {
     console.log(votedSurveys)
     if(isLoading) return <LoadingSpinner/>
   return (
-    <div className="flex flex-col justify-center items-center my-8">
+    <div className="flex flex-col justify-center items-center my-14">
       <div className="flex flex-col justify-center items-center mb-8">
         <h2 className="md:text-2xl font-arvo  font-bold text-amber-700">
           Featured Survey
@@ -26,7 +26,7 @@ const FeaturedSurvey = () => {
           Here we display our most voted surveys !
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-7 mt-10">
         {votedSurveys.map(survey => (
             <Card key={survey._id} survey={survey}/>
         ))}

@@ -11,7 +11,7 @@ const Banner = () => {
       >
         <div className="flex items-center justify-center w-full h-full bg-gray-900/40">
           <div className="text-center">
-            <h1 className="text-3xl font-semibold text-white lg:text-4xl font-display">
+            <h1 className="text-2xl font-semibold text-white lg:text-4xl font-display">
               Collect Real <span className="text-blue-600">Feedback</span> &
               Drive Better Results.
             </h1>

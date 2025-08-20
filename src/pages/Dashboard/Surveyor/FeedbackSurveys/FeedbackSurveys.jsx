@@ -25,16 +25,16 @@ const FeedbackSurveys = () => {
       <Helmet>
         <title>Feedback Survey Page</title>
       </Helmet>
-      <div className="flex flex-col justify-center items-center my-8">
+      <div className="flex flex-col justify-center items-center my-8  ">
         <div className="flex flex-col  justify-center items-center mb-8">
           <h2 className="md:text-3xl font-arvo  font-bold text-gray-400">
             Feedback Survey by Admin
           </h2>
           <p className="text-sm text-gray-400">Here show all feedback for surveys by admin our website!</p>
         </div>
-        <div className="min-w-full">
-          <div className="overflow-x-auto">
-            <table className="table">
+        <div className="min-w-full ">
+          <div className="overflow-x-auto ">
+            <table className="table overflow-x-hidden">
               {/* head */}
               <thead className="bg-amber-500 uppercase text-white">
                 <tr>

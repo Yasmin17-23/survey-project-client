@@ -3,7 +3,7 @@ import useAuth from "../../../hooks/useAuth";
 import profileImg from "../../../assets/images/profile-img1.jpg";
 import { Link } from "react-router";
 import { AiOutlineMenu } from "react-icons/ai";
-import logo from "../../../assets/images/logo.png";
+
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
@@ -19,8 +19,8 @@ const Navbar = () => {
               to="/"
               className="block md:flex justify-center items-center flex-wrap"
             >
-              <img src={logo} alt="" className="w-8  mr-2" />
-              <h2 className="text-lg font-arvo text-blue-400 font-bold">
+              <img src="https://i.postimg.cc/Z5rgfmkf/logo.png" alt="" className="w-8  mr-2" />
+              <h2 className="md:text-lg font-arvo text-blue-400 font-bold">
                 Survey
                 <span className="text-amber-700">Bangla</span>
               </h2>
@@ -28,26 +28,33 @@ const Navbar = () => {
             {/* Dropdown Menu */}
             <div className="relative">
               <div className="flex flex-row items-center gap-3">
-                {/* Become A Host btn */}
+               
                 <div className="flex  justify-between items-center">
                   <Link
                     to="/about-us"
-                    className="block p-2 md:px-4 md:py-3 hover:bg-lime-100 transition font-semibold 
-                    hover:rounded-4xl space-x-5 hover:text-amber-950"
+                    className="block p-2 text-sm md:px-5 md:py-2 hover:bg-lime-100 transition font-semibold 
+                    hover:rounded-3xl space-x-7 hover:text-amber-950"
                   >
-                    About Us
+                    About 
+                  </Link>
+                  <Link
+                    to="/all-survey"
+                    className="block p-2 text-sm md:px-5 md:py-2 hover:bg-lime-100 transition 
+                    font-semibold hover:rounded-4xl space-x-7 hover:text-amber-950"
+                  >
+                    Survey
                   </Link>
                   <Link
                     to="/contact-us"
-                    className="block p-2 md:px-4 md:py-3 hover:bg-lime-100 transition 
-                    font-semibold hover:rounded-4xl space-x-5 hover:text-amber-950"
+                    className="block p-2 text-sm md:px-5 md:py-2 hover:bg-lime-100 transition 
+                    font-semibold hover:rounded-4xl space-x-7 hover:text-amber-950"
                   >
-                    Contact Us
+                    Contact 
                   </Link>
                    <Link
                     to="/pricing"
-                    className="block p-2  md:px-4 md:py-3 hover:bg-lime-100 transition 
-                    font-semibold hover:rounded-4xl space-x-5 hover:text-amber-950"
+                    className="block p-2 text-sm md:px-5 md:py-2 hover:bg-lime-100 transition 
+                    font-semibold hover:rounded-4xl space-x-7 hover:text-amber-950"
                   >
                     Pro User
                   </Link>
