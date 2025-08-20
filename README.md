@@ -1,12 +1,16 @@
-# React + Vite
+Website Name: SurveyBangla 
+Live Site Link: https://survey-project-c091a.web.app/
+Admin UserName: shajol2580@gmail.com
+Admin Password: Shajoladmin@12345
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Here 10 key points for my website:
+1) Design Professional surveys with a simple and user-friendly interface.
+2) Add customizable Question for users.
+3) Share surveys with participants to collect meaningful responses.
+4) All participant can submit their report on each survey.
+5) Sort responses by category and role.
+6) Data visualize in interactive graph, chart and reports.
+7) Protect user data using secure login, signup & privacy settings.
+8) Allow participants to vote, rate and provide important feedback.
+9) If user can purshase pro-user membership , they can payment first.
+10) Here payment method build for payment.
